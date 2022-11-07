@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Navbar from "../components/Navbar";
 import {useAuth} from "../context/AuthContext";
 import {axiosInstance} from "../config/config";
@@ -41,16 +41,16 @@ const style = {
 
 const Home = () => {
     const {user} = useAuth()
-    const [createBody, setCreateBody] = useState({
+    const [createBody, setCreateBody] = React.useState({
         title: '',
         body: ''
     })
-    const [editBody, setEditBody] = useState({
+    const [editBody, setEditBody] = React.useState({
         title: '',
         body: ''
     })
-    const [posts, setPosts] = useState<PostsGet[]>([])
-    const [loading, setLoading] = useState(false)
+    const [posts, setPosts] = React.useState<PostsGet[]>([])
+    const [loading, setLoading] = React.useState(false)
     const [open, setOpen] = React.useState(false);
 
 
@@ -87,7 +87,6 @@ const Home = () => {
     }, [user?.uid])
 
     const setOpenEditFunc = (data: any) => {
-        console.log(data.id)
         posts.filter((item: { id: number, userId: number, title: string, body: string }) => {
             if (data.id === item.id) {
                 setOpenEdit({open: true, obj: {id: item.id, userId: item.userId, title: item.title, body: item.body}})
