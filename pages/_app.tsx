@@ -15,7 +15,7 @@ const MyApp=({ Component, pageProps }: AppProps) =>{
     console.log(router.pathname)
     useEffect(()=>{
         let isMounted=true;
-        if(isMounted){
+        if(isMounted&&router.pathname==='/'){
             router.push('/login')
         }
         return ()=>{
