@@ -48,19 +48,8 @@ const Login = () => {
             router.push('/home')
         } catch (err) {
             console.log(err)
-            setTimeout(()=>{
-                router.push('/signup')
-            },2000)
         }
     }
-
-    const goToSignUp = () => {
-        if (user.uid === null) {
-            router.push('/signup')
-        }
-    }
-
-
 
     return (
 
@@ -134,7 +123,7 @@ const Login = () => {
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link href="" variant="body2" onClick={() => goToSignUp()}>
+                                    <Link href="/signup" variant="body2" >
                                         {"Don't have an account? Sign Up"}
                                     </Link>
                                 </Grid>

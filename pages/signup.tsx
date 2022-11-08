@@ -124,7 +124,7 @@ const Signup = () => {
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link href="" variant="body2"  onClick={()=>router.push('/login')}>
+                                    <Link href="/login" variant="body2" >
                                         {"Don't have an account? Log in"}
                                     </Link>
                                 </Grid>
