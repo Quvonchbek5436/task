@@ -62,6 +62,7 @@ const Home = () => {
         open: false,
         obj: {title: '', body: '', id: 0, userId: 0}
     });
+
     const handleCloseEdit = () => setOpenEdit({open: false, obj: {title: '', body: '', id: 0, userId: 0}});
 
     useEffect(() => {
@@ -103,10 +104,10 @@ const Home = () => {
                     body: createBody.body
                 })
                 console.log(res.data)
-                setOpen(false)
+                handleClose()
             } catch (e) {
                 console.log(e)
-                setOpen(false)
+                handleClose()
             }
         }
     }
@@ -121,9 +122,10 @@ const Home = () => {
                     body: editBody.body.length > 0 ? editBody.body : openEdit.obj.body
                 })
                 console.log(res.data)
-
+                handleCloseEdit()
             } catch (e) {
                 console.log(e)
+                handleCloseEdit()
             }
         }
     }
@@ -144,7 +146,7 @@ const Home = () => {
             <Navbar/>
             <Box sx={{marginTop: '15px', display: 'flex', justifyContent: 'center'}}>
                 <Button size="small" variant={'outlined'} color="success"
-                        onClick={handleOpen}>+</Button>
+                        onClick={handleOpen}>Add post</Button>
             </Box>
             {
                 loading &&
@@ -154,13 +156,12 @@ const Home = () => {
             }
             <Grid container spacing={2} sx={{marginTop: '5px'}}>
                 {
-                    posts?.map((item: any, index: any) => (
+                    posts?.map((item, index) => (
                         <Grid key={index} item lg={3} md={4} sm={6} xs={12}>
                             <Card sx={{
                                 height: '100%',
                                 display: 'flex',
                                 flexDirection: 'column',
-                                justifyContent: 'between'
                             }}>
                                 <CardContent>
                                     <Typography sx={{fontSize: 14,fontWeight:'bold',marginBottom:'20px'}} color="text.secondary" gutterBottom>
