@@ -162,20 +162,15 @@ const Home = () => {
                                 justifyContent: 'between'
                             }}>
                                 <CardContent>
-                                    <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
-                                        {
-                                            item.body
-                                        }
-                                    </Typography>
-                                    <Typography sx={{mb: 1.5}} color="text.secondary">
+                                    <Typography sx={{fontSize: 14,fontWeight:'bold',marginBottom:'20px'}} color="text.secondary" gutterBottom>
                                         {
                                             item.title
                                         }
                                     </Typography>
-                                    <Typography variant="body2">
-                                        well meaning and kindly.
-                                        <br/>
-                                        {'"a benevolent smile"'}
+                                    <Typography sx={{mb: 1.5}} color="text.secondary">
+                                        {
+                                            item.body
+                                        }
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
