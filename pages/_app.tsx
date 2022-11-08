@@ -5,7 +5,7 @@ import ProtectedRoute from '../components/ProtectedRoute'
 import {useEffect} from "react";
 import '../styles/globals.css'
 
-const noAuthRequired = ['/', '/login', '/signup']
+const noAuthRequired = ['/', '/login', '/signup','/home']
 
 const MyApp = ({Component, pageProps}: AppProps) => {
     const router = useRouter()
