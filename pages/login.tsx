@@ -34,6 +34,7 @@ const theme = createTheme();
 const Login = () => {
     const router = useRouter()
     const {user, login} = useAuth()
+        console.log(user)
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -42,7 +43,6 @@ const Login = () => {
     const handleLogin = async (e: any) => {
         e.preventDefault()
 
-        console.log(user)
         try {
             await login(data.email, data.password)
             router.push('/home')

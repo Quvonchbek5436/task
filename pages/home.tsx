@@ -41,6 +41,7 @@ const style = {
 
 const Home = () => {
     const {user} = useAuth()
+    console.log(user)
     const [createBody, setCreateBody] = React.useState({
         title: '',
         body: ''
@@ -65,7 +66,7 @@ const Home = () => {
 
     useEffect(() => {
         let isMounted = true;
-        if (user?.uid !== null) {
+        if (user!== null) {
             setLoading(true)
             const getData = async () => {
                 try {
@@ -84,7 +85,7 @@ const Home = () => {
         return () => {
             isMounted = false;
         }
-    }, [user?.uid])
+    }, [user])
 
     const setOpenEditFunc = (data: any) => {
         posts.filter((item: { id: number, userId: number, title: string, body: string }) => {
@@ -95,7 +96,7 @@ const Home = () => {
     }
 
     const createPosts = async () => {
-        if (user?.uid !== null) {
+        if (user !== null) {
             try {
                 const res = await axiosInstance.post('posts', {
                     title: createBody.title,
@@ -111,7 +112,7 @@ const Home = () => {
     }
 
     const PostsEditHandler = async () => {
-        if (user?.uid !== null) {
+        if (user !== null) {
             try {
                 const res = await axiosInstance.patch(`posts/${openEdit.obj.id}`, {
                     id: openEdit.obj.id,
@@ -128,7 +129,7 @@ const Home = () => {
     }
 
     const PostsDeleteHandler = async (id: number) => {
-        if (user?.uid !== null) {
+        if (user !== null) {
             try {
                 const res = await axiosInstance.delete(`posts/${id}`)
                 console.log(res)
